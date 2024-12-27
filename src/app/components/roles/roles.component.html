@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-3">
+        <p>{{firstName}}</p>
+    </div>
+
+    <div class="col-3">
+        <p>{{version}}</p>
+    </div>
+
+    <div class="col-3">
+        <p>{{isActive}}</p>
+    </div>
+
+    <div class="col-3">
+        <p>{{currentDate}}</p>
+    </div>
+    <div class="col-3">
+        <p>{{selectedState}}</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <input type="text" [value]="firstName" class="form-control">
+    </div>
+    <div class="col-3">
+        <input type="text" [(ngModel)]="firstName">
+    </div>
+
+
+    <div class="col-3">
+        <input type="radio">
+    </div>
+
+    <div class="col-3">
+        <select name="" id="" [(ngModel)]="selectedState">
+            <option value="MR">MR</option>
+            <option value="MH">MH</option>
+            <option value="MP">MP</option>
+            <option value="MS">MS</option>
+        </select>
+    </div>
+
+<div class="row">
+    <div class="col-3">
+        <button class="btn btn-success" 
+            (click)="showWelcomeMessage()">Show Welcome</button>
+    </div>
+
+    <div class="col-3">
+        <button class="btn btn-success" 
+            (click)="showWelcomeWithParameter('Welcome to Tutorial')">Show WelcomeWith Param</button>
+    </div>
+</div>
+</div>
+
+
+
+
+
