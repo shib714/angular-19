@@ -1,0 +1,40 @@
+{
+    "message": "",
+    "result": true,    
+    "roles": [
+        {
+            "roleId": 1,
+            "role": "Super Admin"
+        },
+        {
+            "roleId": 2,
+            "role": "Admin"
+        },
+        {
+            "roleId": 3,
+            "role": "TL"
+        },
+        {
+            "roleId": 4,
+            "role": "Junior Developer"
+        },
+        {
+            "roleId": 5,
+            "role": "Senior Developer"
+        }
+    ],
+    "designations": [
+        {
+            "designationId" : 1,
+            "designation": "UI/UX Designer"
+        },
+        {
+            "designationId" : 2,
+            "designation": "Front-end developer"
+        },
+        {
+            "designationId" : 3,
+            "designation": "Back-end developer"
+        }
+    ]
+}

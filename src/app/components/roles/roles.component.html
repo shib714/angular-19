@@ -1,69 +1,21 @@
-
 <h2>Role Component</h2>
-<!-- <div class="row">
-    <div class="col-3">
-        @for(role of roleList; track role.roleId) {
-
-            <div class="roleId" title="{{role.roleId}}">{{role.roleId}}</div>
-            <div class="role" title="{{role.role}}">{{role.role}}</div>
-        }
-    </div>
-</div> -->
-
 <div class="row">
-    <div class="col-12">
-        <table class="table table-bordered">
-            <table>
-                <thead>
+    <div class="col-3">
+        <table class="table">
+            <thead>
                 <tr>
-                    <th>Sr No</th>
-                    <th>Role Name</th>
+                    <th scope="col">Role Id</th>
+                    <th scope="col">Role Name</th>
                 </tr>
             </thead>
+            @for(item of roles.value(); track item.roleId) {
             <tbody>
-                @if(rolesResource.status() === 4) {
-                    @for( role of rolesResource.value(); track role.id) {
-                        <tr>
-                            <td>{{role.id}}</td>
-                            <td>{{role.name}}</td>
-                        </tr>
-                    }                   
-                } 
+                <tr>
+                    <th scope="row">{{item.roleId}}</th>
+                    <td>{{item.role}}</td>
+                </tr>
             </tbody>
-            </table>
+            }
         </table>
-    </div>
-</div>
-
-
-
-@if(rolesResource.status() === 4) {
-    @for( role of rolesResource.value(); track role.id) {
-        <div class="col-3" title="{{role.id}}">{{role.id}}</div>
-        <div class="col-3" title="{{role.name}}">{{role.name}}</div>
-    }
-} @else if (rolesResource.value() === 2) {
-    <div class="msg"> Loading.....</div>
-} @else if (rolesResource.value() === 2) {
-    <div class="msg">Some error occured...</div>
-}
-
-
-
-
-<div class="row">
-
-    <div class="col-4">
-        <ul>
-
-            <li *ngFor="let role of roles">{{role.name}}</li>
-        </ul>
-    </div>
-
-    <div class="col-4">
-        <select >
-            <option *ngFor="let role of roles" [value]="role.id">{{role.name}}</option>
-        </select>
-
     </div>
 </div>

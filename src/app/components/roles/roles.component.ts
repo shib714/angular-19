@@ -1,9 +1,11 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { IRole } from '../../model/interface/role';
-import { rxResource } from '@angular/core/rxjs-interop';
+
 import { CommonModule } from '@angular/common';
+import { MasterService } from '../../services/master.service';
+import { rxResource } from '@angular/core/rxjs-interop';
+import { HttpClient } from '@angular/common/http';
+import { IRole } from '../../model/interface/role';
 
 @Component({
   selector: 'app-roles',
@@ -11,79 +13,24 @@ import { CommonModule } from '@angular/common';
   templateUrl: './roles.component.html',
   styleUrl: './roles.component.css'
 })
-export class RolesComponent  {
-[x: string]: any;
+export class RolesComponent {
 
-  url: string = "http://localhost:3000/roles";
-
-  roles: IRole[] = [];
-
-  rolesResource:any;
-
-  //http = inject(HttpClient);
-
+  roles: any ;
+  roleApiUrl: string =  "http://localhost:3000/roles";
   
-   constructor(private http: HttpClient) {
-    this.getAllRoles();
+
+  constructor(private http: HttpClient) {
+    this.fetchRoles();
+    
+  }
+
+fetchRoles() {
+  this.roles = rxResource({
+    loader: () => {
+      return this.http.get<IRole>(this.roleApiUrl); //just return observer, no need to subscribe
     }
-
-
-  ngOnInit(): void {
-    //this.getAllRoles();
-  }
-
-  // getAllRoles() {
-  //   this.http.get(this.url).subscribe((res:IRole) => {
-  //     this.rolesList = res.data;
-  //   });
-
-
-  //using rxResource
-  getAllRoles() {
-    rxResource({
-      loader: () => {
-        return this.http.get(this.url);
-      }
-    });
-
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  //data types -> string, number, boolean, date, object, array, null, undefined
-
-  //  firstName:string ='Angular 19';
-  //  version: number= 19;
-
-  //  isActive:boolean = false;
-
-  //  currentDate: Date = new Date();
-
-  //  selectedState: string ='';
-
-  //  showWelcomeMessage() : void{
-  //   alert("Welcome to the Angular 19 Tutorial");
-  //  }
-
-  //  showWelcomeWithParameter(msg: string) {
-  //   alert(msg);
-  //  }
-
+  })
+}
 
 
 }
