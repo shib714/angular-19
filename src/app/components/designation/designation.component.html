@@ -1,1 +1,37 @@
-<p>designation works!</p>
+<h2>Designation Component</h2>
+
+<div class="row">
+    <div class="col-12">
+        <p>User</p>
+        @if(usersResource.status() === 4) {           
+        <table class="table table-bordered table-hover">
+            <table>
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">User Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone</th>
+                    </tr>
+                </thead>
+                <tbody class="table-striped">
+                    @for( user of usersResource.value(); track user.id) {
+                   
+                    <tr>
+                        <td>{{user.id}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.phone}}</td>
+                    </tr>
+                    }
+                    
+                </tbody>
+            </table>
+        </table>
+        } @else if (usersResource.value() === 2) {
+        <div class="msg"> Loading.....</div>
+        } @else if (usersResource.value() === 2) {
+        <div class="msg">Some error occured...</div>
+        }
+    </div>
+</div>

@@ -1,60 +1,69 @@
+
+<h2>Role Component</h2>
+<!-- <div class="row">
+    <div class="col-3">
+        @for(role of roleList; track role.roleId) {
+
+            <div class="roleId" title="{{role.roleId}}">{{role.roleId}}</div>
+            <div class="role" title="{{role.role}}">{{role.role}}</div>
+        }
+    </div>
+</div> -->
+
 <div class="row">
-    <div class="col-3">
-        <p>{{firstName}}</p>
-    </div>
-
-    <div class="col-3">
-        <p>{{version}}</p>
-    </div>
-
-    <div class="col-3">
-        <p>{{isActive}}</p>
-    </div>
-
-    <div class="col-3">
-        <p>{{currentDate}}</p>
-    </div>
-    <div class="col-3">
-        <p>{{selectedState}}</p>
+    <div class="col-12">
+        <table class="table table-bordered">
+            <table>
+                <thead>
+                <tr>
+                    <th>Sr No</th>
+                    <th>Role Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if(rolesResource.status() === 4) {
+                    @for( role of rolesResource.value(); track role.id) {
+                        <tr>
+                            <td>{{role.id}}</td>
+                            <td>{{role.name}}</td>
+                        </tr>
+                    }                   
+                } 
+            </tbody>
+            </table>
+        </table>
     </div>
 </div>
 
+
+
+@if(rolesResource.status() === 4) {
+    @for( role of rolesResource.value(); track role.id) {
+        <div class="col-3" title="{{role.id}}">{{role.id}}</div>
+        <div class="col-3" title="{{role.name}}">{{role.name}}</div>
+    }
+} @else if (rolesResource.value() === 2) {
+    <div class="msg"> Loading.....</div>
+} @else if (rolesResource.value() === 2) {
+    <div class="msg">Some error occured...</div>
+}
+
+
+
+
 <div class="row">
-    <div class="col-3">
-        <input type="text" [value]="firstName" class="form-control">
-    </div>
-    <div class="col-3">
-        <input type="text" [(ngModel)]="firstName">
-    </div>
 
+    <div class="col-4">
+        <ul>
 
-    <div class="col-3">
-        <input type="radio">
+            <li *ngFor="let role of roles">{{role.name}}</li>
+        </ul>
     </div>
 
-    <div class="col-3">
-        <select name="" id="" [(ngModel)]="selectedState">
-            <option value="MR">MR</option>
-            <option value="MH">MH</option>
-            <option value="MP">MP</option>
-            <option value="MS">MS</option>
+    <div class="col-4">
+        <select >
+            <option *ngFor="let role of roles" [value]="role.id">{{role.name}}</option>
         </select>
-    </div>
 
-<div class="row">
-    <div class="col-3">
-        <button class="btn btn-success" 
-            (click)="showWelcomeMessage()">Show Welcome</button>
-    </div>
-
-    <div class="col-3">
-        <button class="btn btn-success" 
-            (click)="showWelcomeWithParameter('Welcome to Tutorial')">Show WelcomeWith Param</button>
     </div>
 </div>
-</div>
-
-
-
-
-
