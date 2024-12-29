@@ -1,8 +1,6 @@
-import { Component, inject, OnInit, resource } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit, resource } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MasterService } from '../../services/master.service';
-import { HttpClient } from '@angular/common/http';
-import { rxResource } from '@angular/core/rxjs-interop';
 import { IDesignation } from '../../model/interface/role';
 
 
@@ -12,23 +10,41 @@ import { IDesignation } from '../../model/interface/role';
   templateUrl: './designation.component.html',
   styleUrl: './designation.component.css'
 })
-export class DesignationComponent {
+export class DesignationComponent implements OnInit {
 
-  designations: any;
-  designationApiUrl: string = "http://localhost:3000/designations";
+  designations: IDesignation[] = [];
+  masterService = inject(MasterService);
 
-
-  constructor(private http: HttpClient) {
-    this.fetchDesignations();
-
-  }
-
-  fetchDesignations() {
-    this.designations = rxResource({
-      loader: () => {
-        return this.http.get<IDesignation>(this.designationApiUrl); //just return observer, no need to subscribe
-      }
-    })
+  ngOnInit(): void {
+    this.masterService.fetchDesignations().subscribe(
+      (results: IDesignation[]) => {
+        this.designations = results;
+      });
   }
 }
+
+
+
+
+
+
+
+
+// designations: any;
+// designationApiUrl: string ="http://localhost:3000/designations";
+
+
+// constructor(private http: HttpClient) {
+//   this.fetchDesignations();
+
+// }
+
+// fetchDesignations() {
+//   this.designations = rxResource({
+//     loader: () => {
+//       return this.http.get<IDesignation>(this.designationApiUrl); //just return observer, no need to subscribe
+//     }
+//   })
+// }
+
 

@@ -13,5 +13,6 @@ export interface APIResponseModel {
     message: string;
     result: boolean;
     roles: IRole[];
+    designations: IDesignation[];
 
 }

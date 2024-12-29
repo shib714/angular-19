@@ -1,21 +1,17 @@
 <h2>Designation Component</h2>
 <div class="row">
+    @for(item of designations; track item.designationId) {
     <div class="col-3">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Role Id</th>
-                    <th scope="col">Role Name</th>
-                </tr>
-            </thead>
-            @for(item of designations.value(); track item.designationId) {
-            <tbody>
-                <tr>
-                    <th scope="row">{{item.designationId}}</th>
-                    <td>{{item.designation}}</td>
-                </tr>
-            </tbody>
-            }
-        </table>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Designations</h5>
+                <p class="card-text">{{item.designation}}</p>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+            </div>
+        </div>
     </div>
+    }@empty {
+        <p>No items found</p>
+        }
 </div>

@@ -3,8 +3,6 @@ import { FormsModule } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
 import { MasterService } from '../../services/master.service';
-import { rxResource } from '@angular/core/rxjs-interop';
-import { HttpClient } from '@angular/common/http';
 import { IRole } from '../../model/interface/role';
 
 @Component({
@@ -15,22 +13,14 @@ import { IRole } from '../../model/interface/role';
 })
 export class RolesComponent {
 
-  roles: any ;
-  roleApiUrl: string =  "http://localhost:3000/roles";
-  
+  roles: IRole[] = [];
+  masterService = inject(MasterService);
 
-  constructor(private http: HttpClient) {
-    this.fetchRoles();
-    
+
+  ngOnInit(): void {
+    this.masterService.fetchRoles().subscribe(
+      (results: IRole[]) => {
+        this.roles = results;
+      });
   }
-
-fetchRoles() {
-  this.roles = rxResource({
-    loader: () => {
-      return this.http.get<IRole>(this.roleApiUrl); //just return observer, no need to subscribe
-    }
-  })
-}
-
-
 }

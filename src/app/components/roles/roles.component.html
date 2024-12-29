@@ -8,7 +8,7 @@
                     <th scope="col">Role Name</th>
                 </tr>
             </thead>
-            @for(item of roles.value(); track item.roleId) {
+            @for(item of roles; track item.roleId) {
             <tbody>
                 <tr>
                     <th scope="row">{{item.roleId}}</th>
