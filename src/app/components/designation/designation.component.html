@@ -1,4 +1,9 @@
 <h2>Designation Component</h2>
+@if(isLoading == true) {
+<div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+</div>
+} @else {
 <div class="row">
     @for(item of designations; track item.designationId) {
     <div class="col-3">
@@ -11,7 +16,6 @@
             </div>
         </div>
     </div>
-    }@empty {
-        <p>No items found</p>
-        }
+    }
 </div>
+}

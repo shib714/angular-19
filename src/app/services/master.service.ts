@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { IDesignation, IRole } from '../model/interface/role';
+import { Client } from '../model/class/client';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,10 @@ import { IDesignation, IRole } from '../model/interface/role';
 export class MasterService {    
 
     roleUrl: string ="http://localhost:3000/roles";
-    designationUrl: string ="http://localhost:3000/designations";    
+    designationUrl: string ="http://localhost:3000/designations";   
+    
 
+    //use of HttpClient is deprecated in 18
   constructor( private http: HttpClient) {
     //this.designations = this.getDesignations();
     //this.roles = this.getRoles();
@@ -40,6 +43,8 @@ export class MasterService {
     //     }
     //   });
     // }
+
+
 
 
 }

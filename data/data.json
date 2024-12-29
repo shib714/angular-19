@@ -1,40 +1,89 @@
 {
-    "message": "",
-    "result": true,    
-    "roles": [
-        {
-            "roleId": 1,
-            "role": "Super Admin"
-        },
-        {
-            "roleId": 2,
-            "role": "Admin"
-        },
-        {
-            "roleId": 3,
-            "role": "TL"
-        },
-        {
-            "roleId": 4,
-            "role": "Junior Developer"
-        },
-        {
-            "roleId": 5,
-            "role": "Senior Developer"
-        }
-    ],
-    "designations": [
-        {
-            "designationId" : 1,
-            "designation": "UI/UX Designer"
-        },
-        {
-            "designationId" : 2,
-            "designation": "Front-end developer"
-        },
-        {
-            "designationId" : 3,
-            "designation": "Back-end developer"
-        }
-    ]
+  "message": "",
+  "results": true,
+  "roles": [
+    {
+      "roleId": 1,
+      "role": "Super Admin",
+      "id": "8e33"
+    },
+    {
+      "roleId": 2,
+      "role": "Admin",
+      "id": "087f"
+    },
+    {
+      "roleId": 3,
+      "role": "TL",
+      "id": "c44a"
+    },
+    {
+      "roleId": 4,
+      "role": "Junior Developer",
+      "id": "cbbc"
+    },
+    {
+      "roleId": 5,
+      "role": "Senior Developer",
+      "id": "deca"
+    }
+  ],
+  "designations": [
+    {
+      "designationId": 1,
+      "designation": "UI/UX Designer",
+      "id": "7c6a"
+    },
+    {
+      "designationId": 2,
+      "designation": "Front-end developer",
+      "id": "58fc"
+    },
+    {
+      "designationId": 3,
+      "designation": "Back-end developer",
+      "id": "2ad2"
+    }
+  ],
+  "clients": [
+    {
+      "clientId": 0,
+      "contactPersonName": "John King",
+      "CompanyName": "Starling Company",
+      "address": "32 Oueens St.",
+      "city": "Ottawa",
+      "postalCode": "K2H 0Y5",
+      "province": "Ontario",
+      "id": "89f8"
+    },
+    {
+      "clientId": 1,
+      "contactPersonName": "John Smith",
+      "CompanyName": "Master Company",
+      "address": "32 Kings St.",
+      "city": "Ottawa",
+      "postalCode": "K2H 0Y5",
+      "province": "Ontario",
+      "id": "9f5c"
+    },
+    {
+      "clientId": 2,
+      "contactPersonName": "Kevin Larry",
+      "CompanyName": "Starling Company",
+      "address": "32 Oueens St.",
+      "city": "Ottawa",
+      "postalCode": "K2H 0Y5",
+      "province": "Ontario",
+      "id": "cb95"
+    },
+    {
+      "clientId": 3,
+      "contactPersonName": "Justin Kung",
+      "CompanyName": "Adventure Co.",
+      "address": "320 Queen's St",
+      "city": "Ottawa",
+      "postalCode": "K2Y 0O9",
+      "province": "Ontario"
+    }
+  ]
 }

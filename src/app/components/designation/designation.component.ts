@@ -3,23 +3,30 @@ import { CommonModule } from '@angular/common';
 import { MasterService } from '../../services/master.service';
 import { IDesignation } from '../../model/interface/role';
 
-
 @Component({
   selector: 'app-designation',
   imports: [CommonModule],
   templateUrl: './designation.component.html',
   styleUrl: './designation.component.css'
 })
-export class DesignationComponent implements OnInit {
+export class DesignationComponent {
+
+  isLoading: boolean = true;
 
   designations: IDesignation[] = [];
   masterService = inject(MasterService);
 
   ngOnInit(): void {
+    this.getDesignations();
+    
+  }
+
+  getDesignations() {
     this.masterService.fetchDesignations().subscribe(
       (results: IDesignation[]) => {
-        this.designations = results;
+        this.designations = results;        
       });
+      this.isLoading = false;
   }
 }
 

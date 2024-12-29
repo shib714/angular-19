@@ -1,3 +1,5 @@
+import { Client } from "../class/client";
+
 export interface IRole{
 
     roleId: number;
@@ -8,11 +10,13 @@ export interface IDesignation {
     designation: string;
 
 }
+
 export interface APIResponseModel {
 
     message: string;
     result: boolean;
     roles: IRole[];
     designations: IDesignation[];
+    clients: Client[];
 
 }
