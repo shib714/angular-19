@@ -5,30 +5,32 @@ import { Observable } from 'rxjs';
 import { APIResponseModel } from '../model/interface/role';
 import { environment } from '../../environments/environment.development';
 import { Project } from '../model/class/project';
+import { Constant } from '../constant/Constant';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClientService {
 
-  clientUrl: string ="/clients";   
+  clientUrl: string = environment.BASE_URL + Constant.API_METHOD.GET_CLIENTS; 
+  projectUrl: string = environment.BASE_URL + Constant.API_METHOD.GET_PROJECTS; 
   constructor(private http: HttpClient) { }
 
-
-      fetchClients() : Observable<Client[]>{
-        return this.http.get<Client[]>(environment.BASE_URL + this.clientUrl);
+      fetchClients() : Observable<Client[]>{        
+        return this.http.get<Client[]>(this.clientUrl);
       }
 
       fetchProjects() : Observable<Project[]>{
-        return this.http.get<Project[]>(environment.BASE_URL + "/projects");
+        return this.http.get<Project[]>(this.projectUrl);
       }
 
       addUpdateClient(obj: Client): Observable<APIResponseModel> {
-        return this.http.post<APIResponseModel>(environment.BASE_URL + this.clientUrl, obj);
-        
+        return this.http.post<APIResponseModel>(this.clientUrl, obj);        
       }
 
       deleteClient(id: number): Observable<APIResponseModel> {
-        return this.http.delete<APIResponseModel>(environment.BASE_URL + this.clientUrl + "/" + id);
+        return this.http.delete<APIResponseModel>(this.clientUrl + "/" + id);
       }
+
+      
 }

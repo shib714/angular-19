@@ -1,8 +1,9 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, resource } from '@angular/core';
 import { Client } from '../../model/class/client';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormsModule } from '@angular/forms';
 import { ClientService } from '../../services/client.service';
 import { APIResponseModel } from '../../model/interface/role';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-client',

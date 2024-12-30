@@ -1,9 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, resource, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Client } from '../../model/class/client';
 import { ClientService } from '../../services/client.service';
 import { Project } from '../../model/class/project';
 import { CurrencyPipe, DatePipe } from '@angular/common';
+import { Observable } from 'rxjs';
+import { rxResource, toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-client-project',
@@ -55,4 +57,9 @@ export class ClientProjectComponent {
       });
   }
 
+
+
 }
+
+
+

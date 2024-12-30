@@ -1,0 +1,8 @@
+{
+    "clients/list": "/clients",
+    "clients/get/:id": "/clients/:id",
+    "clients/create": "/clients",
+    "clients/update/:id": "/clients/:id",
+    "clients/delete/:id": "/clients/:id"
+  }
+  

@@ -20,8 +20,9 @@
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="text" placeholder="Search">
+        <input [formControl]="search" placeholder="Search for todos" class="form-control me-2" type="text"/>
         <button class="btn btn-primary" type="button">Search</button>
+        
       </form>
     </div>
   </div>
@@ -30,6 +31,5 @@
 <div class="container pt-2" >
   <router-outlet></router-outlet>
 </div>
-<router-outlet></router-outlet>
-
 <!-- <app-master></app-master> -->
+
