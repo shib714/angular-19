@@ -1,7 +1,7 @@
 export class Client {
     clientId: number;
     contactPersonName: string;
-    CompanyName: string;
+    companyName: string;
     address: string;
     city: string;
     postalCode: string;
@@ -10,10 +10,10 @@ export class Client {
     constructor() {
         this.clientId = 0;
         this.contactPersonName = "";
-        this.CompanyName = "";
+        this.companyName = "";
         this.address = "";
         this.city = "",
-            this.postalCode = "";
+        this.postalCode = "";
         this.province = "";
     }
 }

@@ -4,6 +4,7 @@ import { Client } from '../model/class/client';
 import { Observable } from 'rxjs';
 import { APIResponseModel } from '../model/interface/role';
 import { environment } from '../../environments/environment.development';
+import { Project } from '../model/class/project';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,10 @@ export class ClientService {
 
       fetchClients() : Observable<Client[]>{
         return this.http.get<Client[]>(environment.BASE_URL + this.clientUrl);
+      }
+
+      fetchProjects() : Observable<Project[]>{
+        return this.http.get<Project[]>(environment.BASE_URL + "/projects");
       }
 
       addUpdateClient(obj: Client): Observable<APIResponseModel> {

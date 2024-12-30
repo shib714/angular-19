@@ -49,7 +49,7 @@
     {
       "clientId": 0,
       "contactPersonName": "John King",
-      "CompanyName": "Starling Company",
+      "companyName": "Starling Company",
       "address": "32 Oueens St.",
       "city": "Ottawa",
       "postalCode": "K2H 0Y5",
@@ -59,7 +59,7 @@
     {
       "clientId": 1,
       "contactPersonName": "John Smith",
-      "CompanyName": "Master Company",
+      "companyName": "Master Company",
       "address": "32 Kings St.",
       "city": "Ottawa",
       "postalCode": "K2H 0Y5",
@@ -69,7 +69,7 @@
     {
       "clientId": 2,
       "contactPersonName": "Kevin Larry",
-      "CompanyName": "Starling Company",
+      "companyName": "Starling Company",
       "address": "32 Oueens St.",
       "city": "Ottawa",
       "postalCode": "K2H 0Y5",
@@ -79,11 +79,29 @@
     {
       "clientId": 3,
       "contactPersonName": "Justin Kung",
-      "CompanyName": "Adventure Co.",
+      "companyName": "Adventure Co.",
       "address": "320 Queen's St",
       "city": "Ottawa",
       "postalCode": "K2Y 0O9",
-      "province": "Ontario"
+      "province": "Ontario",
+      "id": "2b3e"
+    }
+  ],
+  "projects": [
+    {
+      "clientProjectId": 0,
+      "projectName": "ABC Company",
+      "startDate": "2024-08-21T15:15:43.841245",
+      "expectedEndDate": "2024-08-21T15:15:43.841245",
+      "leadByEmpId": 0,
+      "completedDate": "2024-08-21T15:15:43.841245",
+      "contactPersion": "Justin Kung",
+      "contactPersonContactNo": "613-831-2133",
+      "totalEmpWorking": 10,
+      "projectCost": 1500000,
+      "projectDetail": "string",
+      "contactPersonEmailId": "abc@gmain.com",
+      "clientId": 0
     }
   ]
 }

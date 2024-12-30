@@ -1,0 +1,119 @@
+<div class="row">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-header bg-success">
+                Client list
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Sl No</th>
+                                    <th scope="col">Project Name</th>
+                                    <th scope="col">Start Date</th>
+                                    <th scope="col">End date</th>
+                                    <th scope="col">Contact Name</th>
+                                    <th scope="col">Contact Phone</th>
+                                    <th scope="col">Project Cost</th>    
+                                    <th scope="col">Lead By</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for(item of projects; track $index) {
+                                    <tr>
+                                        <th scope="row">{{$index +1}}</th>
+                                        <td>{{item.projectName}}</td>
+                                        <td>{{item.startDate | date: 'dd-MM-yyyy' }}</td>
+                                        <td>{{item.expectedEndDate | date: 'dd-MM-yyyy' }}</td>
+                                        <td>{{item.contactPersion}}</td>
+                                        <td>{{item.contactPersonContactNo}}</td>
+                                        <td>{{item.projectCost | currency:'USD':'symbol'}}</td> 
+                                        <td>
+                                            <!-- <button class="btn btn-primary" (click)="onEditClient(item)">Edit</button>
+                                            <button class="btn btn-danger" (click)="onDeleteClient($index)">Delete</button> -->
+                                        </td>
+                                    </tr>
+                                    }
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header bg-success">
+                New Client
+            </div>
+            <div class="card-body">
+                <form [formGroup]="projectForm">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="">Project Name</label>
+                            <input type="text" formControlName="projectName" class="form-control">
+
+                        </div>
+                        <div class="col-6">
+                            <label for="">Start Date</label>
+                            <input type="text" formControlName="startDate" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Expected End Date</label>
+                            <input type="text" formControlName="expectedEndDate" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Contact Name</label>
+                            <input type="text" formControlName="contactPersion" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Contact Phone</label>
+                            <input type="text" formControlName="contactPersonContactNo" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Project Cost</label>
+                            <input type="text" formControlName="projectCost" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Client</label>
+                            <select formControlName="clientId" class="form-control">
+                                <option value="">Select Client</option>
+                                @for (item of clients; track $index) {
+                                    <option [value]="item.clientId">{{item.companyName}}</option>
+                                }
+                            </select>
+
+
+
+                            <!-- @for (item of clients; track $index) {
+                            <select formControlName="clientId" class="form-control">
+                                <option [value]="item.clientId">{{item.companyName}}</option>
+                            </select>
+                            } -->
+                        </div>
+                        <div class="col-6">
+                            <label for="">Lead By</label>
+                            <select formControlName="leadByEmpId" class="form-control">
+                                <option value="">Select Employee</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row py-2">
+                        <div class="col-6 text-center">
+                            <button class="btn btn-secondary">Reset</button>
+                        </div>
+                        <div class="col-6 text-center">
+                            <button class="btn btn-success" >
+                                 </button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

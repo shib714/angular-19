@@ -10,6 +10,8 @@ import { APIResponseModel } from '../../model/interface/role';
   templateUrl: './client.component.html',
   styleUrl: './client.component.css'
 })
+
+//using Template Form
 export class ClientComponent {
 
 
