@@ -19,10 +19,10 @@ export class CurrencyService {
   
   private http = inject(HttpClient);
   private exchangeRates$ = this.http.get<ExchangeRates>("https://lp-store-server.vercel.app/rates");
-  private exchangeRates = toSignal(this.exchangeRates$, {initialValue: {USD: 1, EUR: 1, GBP: 1} });
+  private exchangeRates = toSignal(this.exchangeRates$, {initialValue: {USD: 1, EUR: 1, GBP: 1} });//just temporary initial value
 
-  constructor() { }
 
+  //computed signal is already readonly
   currencyInfo: Signal<CurrencyInfo> = computed(() => {
     return {currency: this.currency(), exchangeRate: this.exchangeRates()[this.currency()]}
   } )
@@ -31,9 +31,9 @@ export class CurrencyService {
     return this.currencyInfo;
   }
 
-  getCurrency(): Signal<Currency> {
-    return this.currency.asReadonly();
-  }
+  // getCurrency(): Signal<Currency> {
+  //   return this.currency.asReadonly();
+  // }
 
   setCurrency(currency: Currency): void {
     this.currency.set(currency);

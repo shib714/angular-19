@@ -3,6 +3,7 @@ import { LicensePlate } from '../../model/interface/license-plate';
 ;
 import { AsyncPipe, CurrencyPipe } from '@angular/common';
 import { Currency } from '../../model/currency';
+import { CurrencyInfo } from '../../services/currency.service';
 
 @Component({
   selector: 'app-license-plate',
@@ -15,10 +16,11 @@ export class LicensePlateComponent {
   //signal based component
   plate = input.required<LicensePlate>();
   buttonText = input<string>("");
+  //currency = input.required<Currency>();
+
+  //TODD:  handle exchange rates for each currency using endpoint https://lp-store-server.vercel.app/rates
+  currencyInfo = input.required<CurrencyInfo>();
 
   buttonClicked = output<LicensePlate>();
-  //currencyInfo = input.required<CurrencyInfo>();
-
-  currency = input.required<Currency>();
 
 }
