@@ -16,6 +16,7 @@ export interface CurrencyInfo {
 export class CurrencyService {
 
   private readonly currency = signal<Currency>("USD");
+  
   private http = inject(HttpClient);
   private exchangeRates$ = this.http.get<ExchangeRates>("https://lp-store-server.vercel.app/rates");
   private exchangeRates = toSignal(this.exchangeRates$, {initialValue: {USD: 1, EUR: 1, GBP: 1} });
@@ -26,8 +27,12 @@ export class CurrencyService {
     return {currency: this.currency(), exchangeRate: this.exchangeRates()[this.currency()]}
   } )
 
-  getCurrency(): Signal<CurrencyInfo> {
+  getCurrencyInfo(): Signal<CurrencyInfo> {
     return this.currencyInfo;
+  }
+
+  getCurrency(): Signal<Currency> {
+    return this.currency.asReadonly();
   }
 
   setCurrency(currency: Currency): void {

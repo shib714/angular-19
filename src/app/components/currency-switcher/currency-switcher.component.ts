@@ -1,6 +1,7 @@
 import { Component, inject, Signal } from '@angular/core';
 import { Currency } from '../../model/currency';
 import { CurrencyCodeService } from '../../services/currency-code.service';
+import { CurrencyService } from '../../services/currency.service';
 
 @Component({
   selector: 'app-currency-switcher',
@@ -12,11 +13,16 @@ export class CurrencySwitcherComponent {
 
   showItems: boolean = false;
 
-  currencyService = inject(CurrencyCodeService);
+  //currencyCodeService = inject(CurrencyCodeService);
+
+  currencyService = inject(CurrencyService);
 
   currency: Signal<Currency> = this.currencyService.getCurrency();
 
+  //currencyCode: Signal<Currency> = this.currencyCodeService.getCurrency();
+
   changeCurrency(currency: Currency): void {
+    this.currencyService.setCurrency(currency);
     this.showItems = false;
   }
 

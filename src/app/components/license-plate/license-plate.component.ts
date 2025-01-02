@@ -1,22 +1,24 @@
 import { Component, inject, Input, input, output } from '@angular/core';
 import { LicensePlate } from '../../model/interface/license-plate';
-import { PlateServiceService } from '../../services/plate-service.service';
-import { CurrencyInfo, CurrencyService } from '../../services/currency.service';
-import { HttpClient } from '@angular/common/http';
-import { AsyncPipe } from '@angular/common';
+;
+import { AsyncPipe, CurrencyPipe } from '@angular/common';
+import { Currency } from '../../model/currency';
 
 @Component({
   selector: 'app-license-plate',
-  imports: [],
+  imports: [CurrencyPipe],
   templateUrl: './license-plate.component.html',
   styleUrl: './license-plate.component.css'
 })
 export class LicensePlateComponent {
 
+  //signal based component
   plate = input.required<LicensePlate>();
   buttonText = input<string>("");
-  buttonClicked = output<LicensePlate>();
-  currencyInfo = input.required<CurrencyInfo>();
 
+  buttonClicked = output<LicensePlate>();
+  //currencyInfo = input.required<CurrencyInfo>();
+
+  currency = input.required<Currency>();
 
 }

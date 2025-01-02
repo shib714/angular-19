@@ -16,7 +16,8 @@ export class StoreViewComponent {
 
   http = inject(HttpClient);
   plates$ = this.http.get<LicensePlate[]>('https://lp-store-server.vercel.app/data');
-  currencyInfo = inject(CurrencyService).getCurrency();
+ // currencyInfo = inject(CurrencyService).getCurrencyInfo();
+  currency = inject(CurrencyService).getCurrency();
   
 
 }
