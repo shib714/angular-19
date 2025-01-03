@@ -2,7 +2,6 @@ import { Component, inject, Input, input, output } from '@angular/core';
 import { LicensePlate } from '../../model/interface/license-plate';
 ;
 import { AsyncPipe, CurrencyPipe } from '@angular/common';
-import { Currency } from '../../model/currency';
 import { CurrencyInfo } from '../../services/currency.service';
 
 @Component({
@@ -24,3 +23,4 @@ export class LicensePlateComponent {
   buttonClicked = output<LicensePlate>();
 
 }
+
